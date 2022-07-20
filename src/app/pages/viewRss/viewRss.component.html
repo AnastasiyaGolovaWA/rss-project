@@ -1,3 +1,19 @@
-<tr *ngFor="let rssFeed of rssFeeds">
-    <td>{{rssFeed}}</td>
-  </tr>
+<h1 class="tittle">Добавленные rss-ленты</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Текущая позиция</th>
+            <th scope="col">Url</th>
+            <th scope="col">Дата добавления</th>
+            <th scope="col">Дата обновления</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rssFeed of rssFeeds">
+            <td>{{rssFeed.currentPosition}}</td>
+            <td>{{rssFeed.url}}</td>
+            <td>{{rssFeed.dateCreated}}</td>
+            <td>{{rssFeed.dateUpdated}}</td>
+        </tr>
+    </tbody>
+</table>
