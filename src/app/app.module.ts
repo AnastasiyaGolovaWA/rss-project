@@ -7,12 +7,12 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home';
+import { ViewRssComponent } from './pages/viewRss';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule, DxDataGridModule, FormsModule, CommonModule],
+  declarations: [AppComponent, HomeComponent, ViewRssComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
