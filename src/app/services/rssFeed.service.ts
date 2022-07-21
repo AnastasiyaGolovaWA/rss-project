@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { RssFeed } from '../models';
 
 @Injectable()
 export class RssFeedService {
@@ -16,11 +15,15 @@ export class RssFeedService {
         return this.http.get(`${this.rssFeedsUrl + '/getAll'}`);
     }
 
-    public save(rssFeed: RssFeed) {
-        return this.http.post<RssFeed>(this.rssFeedsUrl + '/add', rssFeed);
+    public save(rssFeed: Object): Observable<Object> {
+        return this.http.post(`${this.rssFeedsUrl + '/add'}`, rssFeed);
     }
 
     public delete(id: string): Observable<any> {
         return this.http.delete(`${this.rssFeedsUrl + '/delete'}/${id}`, { responseType: 'text' });
+    }
+
+    public updateCurrentValue(id: string, value: any): Observable<Object> {
+        return this.http.put(`${this.rssFeedsUrl + '/changeCurrentPosition'}/${id}`, value);
     }
 }

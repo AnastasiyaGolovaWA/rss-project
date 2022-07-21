@@ -7,6 +7,7 @@
             <th scope="col">Дата добавления</th>
             <th scope="col">Дата обновления</th>
             <th scope="col">Удалить</th>
+            <th scope="col">Обновить текущую позицию</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +16,7 @@
             <td>{{rssFeed.url}}</td>
             <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
             <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
-            <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Delete</button></td>
+            <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button></td>
         </tr>
     </tbody>
 </table>
