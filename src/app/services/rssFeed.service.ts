@@ -12,11 +12,15 @@ export class RssFeedService {
         this.rssFeedsUrl = 'http://localhost:8080/rssFeed';
     }
 
-    public findAll(): Observable<RssFeed[]> {
-        return this.http.get<RssFeed[]>(this.rssFeedsUrl + '/getAll');
+    public findAll(): Observable<any> {
+        return this.http.get(`${this.rssFeedsUrl + '/getAll'}`);
     }
 
     public save(rssFeed: RssFeed) {
         return this.http.post<RssFeed>(this.rssFeedsUrl + '/add', rssFeed);
+    }
+
+    public delete(id: string): Observable<any> {
+        return this.http.delete(`${this.rssFeedsUrl + '/delete'}/${id}`, { responseType: 'text' });
     }
 }

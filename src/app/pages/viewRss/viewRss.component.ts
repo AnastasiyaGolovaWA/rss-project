@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RssFeedService } from 'src/app/services';
 import { RssFeed } from 'src/app/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'view-rss',
@@ -9,14 +10,26 @@ import { RssFeed } from 'src/app/models';
 })
 export class ViewRssComponent implements OnInit {
 
-  rssFeeds: RssFeed[];
+  rssFeeds: Observable<RssFeed[]>;
 
   constructor(private rssFeedService: RssFeedService) {
   }
 
+  reloadData() {
+    this.rssFeeds = this.rssFeedService.findAll();
+  }
+
+  delete(id: string) {
+    this.rssFeedService.delete(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
   ngOnInit() {
-    this.rssFeedService.findAll().subscribe(data => {
-      this.rssFeeds = data;
-    });
+    this.reloadData();
   }
 }
