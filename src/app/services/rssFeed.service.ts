@@ -15,4 +15,8 @@ export class RssFeedService {
     public findAll(): Observable<RssFeed[]> {
         return this.http.get<RssFeed[]>(this.rssFeedsUrl + '/getAll');
     }
+
+    public save(rssFeed: RssFeed) {
+        return this.http.post<RssFeed>(this.rssFeedsUrl + '/add', rssFeed);
+    }
 }

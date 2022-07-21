@@ -12,8 +12,8 @@
         <tr *ngFor="let rssFeed of rssFeeds">
             <td>{{rssFeed.currentPosition}}</td>
             <td>{{rssFeed.url}}</td>
-            <td>{{rssFeed.dateCreated}}</td>
-            <td>{{rssFeed.dateUpdated}}</td>
+            <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
+            <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
         </tr>
     </tbody>
 </table>
