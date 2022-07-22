@@ -8,11 +8,11 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent,
   },
-  { 
-    path: 'viewRss', component: ViewRssComponent 
+  {
+    path: 'viewRss', component: ViewRssComponent
   },
-  { 
-    path: 'saveRssFeed', component: AddRssFeedComponent 
+  {
+    path: 'saveRssFeed', component: AddRssFeedComponent
   },
 ];
 @NgModule({

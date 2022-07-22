@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
+import { RssFeed } from '../models';
 
 @Injectable()
 export class RssFeedService {
@@ -23,7 +24,7 @@ export class RssFeedService {
         return this.http.delete(`${this.rssFeedsUrl + '/delete'}/${id}`, { responseType: 'text' });
     }
 
-    public updateCurrentValue(id: string, value: any): Observable<Object> {
+    public updateCurrentValue(id: string, value: any): Observable<any> {
         return this.http.put(`${this.rssFeedsUrl + '/changeCurrentPosition'}/${id}`, value);
     }
 }

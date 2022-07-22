@@ -47,11 +47,23 @@ export class ViewRssComponent implements OnInit {
     if (position == true) {
       return "Включена"
     }
-    else return "Выключена"
+    if (position == false) {
+      return "Выключена"
+    }
   }
 
   delete(id: string) {
     this.rssFeedService.delete(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+  update(id: string, value: boolean) {
+    this.rssFeedService.updateCurrentValue(id, !value)
       .subscribe(
         data => {
           console.log(data);
