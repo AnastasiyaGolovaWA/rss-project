@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RssFeedService } from 'src/app/services';
-import { RssFeed } from 'src/app/models';
-import { Observable } from 'rxjs';
-import { ParseSourceFile } from '@angular/compiler';
 
 @Component({
   selector: 'view-rss',
@@ -25,7 +22,6 @@ export class ViewRssComponent implements OnInit {
     this.rssFeedService.findAll().subscribe(
       (response) => {
         this.rssFeeds = response;
-        console.log(response);
       },
       (error) => {
         console.log(error);
@@ -70,6 +66,7 @@ export class ViewRssComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
+        this.reloadData();
   }
 
   ngOnInit() {
