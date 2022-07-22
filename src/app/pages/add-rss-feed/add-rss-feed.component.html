@@ -1,32 +1,46 @@
 <div class="col-md-6 form">
   <h1 class="text-center">Добавить rss ленту</h1>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Текущая позиция:</label>
-      <div class="form-control size">
-        <label><input type="radio" formControlName="currentPosition" value="true" name="currentPosition">Включить
-          уведомления
-        </label>
-        <br><label><input type="radio" formControlName="currentPosition" value="false" name="currentPosition">Отключить
-          уведомления
-        </label>
+    <div class="rss-form">
+      <div class="form-group">
+        <label for="name">Текущая позиция:</label>
+        <div class="form-control size">
+          <label><input type="radio" formControlName="currentPosition" value="true" name="currentPosition">Включить
+            уведомления
+          </label>
+          <br><label><input type="radio" formControlName="currentPosition" value="false"
+              name="currentPosition">Отключить
+            уведомления
+          </label>
+        </div>
+      </div>
+      <div class="form-group url-field">
+        <label for="url">Url:</label>
+        <input formControlName="url" name="url" class="form-control size" id="url">
+        <div class="feedback-red" *ngIf="isInvalid('url')">
+          Url не введён!
+        </div>
+      </div>
+      <div class="form-group url-field">
+        <label for="dateCreated">Дата создания:</label>
+        <input formControlName="dateCreated" placeholder="ГГГГ-ММ-ДД" name="dateCreated" class="form-control size"
+          id="dateCreated">
+        <div class="feedback-red" *ngIf="isInvalid('dateCreated')">
+          Дата добавления не введена!
+        </div>
+      </div>
+      <div class="form-group url-field">
+        <label for="dateUpdated">Дата обновления:</label>
+        <input formControlName="dateUpdated" placeholder="ГГГГ-ММ-ДД" name="dateUpdated" class="form-control size"
+          id="dateUpdated">
+        <div class="feedback-red" *ngIf="isInvalid('dateUpdated')">
+          Дата обновления не введена!
+        </div>
       </div>
     </div>
-    <div class="form-group url-field">
-      <label for="url">Url:</label>
-      <input formControlName="url" name="url" class="form-control size" id="url">
+    <div class="btn-class">
+      <button button (click)="save()" [disabled]="form.invalid" class="btn btn-success">Добавить</button>
+      <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
     </div>
-    <div class="form-group url-field">
-      <label for="dateCreated">Дата создания:</label>
-      <input formControlName="dateCreated" placeholder="yyyy-MM-dd" name="dateCreated" class="form-control size"
-        id="dateCreated">
-    </div>
-    <div class="form-group url-field">
-      <label for="dateUpdated">Дата обновления:</label>
-      <input formControlName="dateUpdated" placeholder="yyyy-MM-dd" name="dateUpdated" class="form-control size"
-        id="dateUpdated">
-    </div>
-    <a routerLink="../viewRss" class="btn btn-success">Добавить</a>
-    <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
   </form>
 </div>

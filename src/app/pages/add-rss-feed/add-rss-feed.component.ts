@@ -32,6 +32,12 @@ export class AddRssFeedComponent implements OnInit {
     });
   }
 
+  isInvalid(name: string) {
+    const control = this.form.get(name);
+    if (control)
+      return control.invalid && control.dirty;
+  }
+
   get f() {
     return this.form.controls;
   }
@@ -59,6 +65,9 @@ export class AddRssFeedComponent implements OnInit {
       );
   }
 
+  save() {
+    this.router.navigate(['/viewRss']);
+  }
 
   onCancel() {
     this.router.navigate(['/viewRss']);
