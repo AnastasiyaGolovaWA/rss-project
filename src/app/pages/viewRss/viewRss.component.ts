@@ -11,13 +11,36 @@ import { ParseSourceFile } from '@angular/compiler';
 })
 export class ViewRssComponent implements OnInit {
 
-  rssFeeds: Observable<RssFeed[]>;
+  rssFeeds: any;
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 7;
+  tableSizes: any = [3, 6, 9, 12];
 
   constructor(private rssFeedService: RssFeedService) {
   }
 
   reloadData() {
-    this.rssFeeds = this.rssFeedService.findAll();
+    this.rssFeedService.findAll().subscribe(
+      (response) => {
+        this.rssFeeds = response;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.reloadData();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.reloadData();
   }
 
   getCurrentValue(position: boolean) {
