@@ -44,7 +44,7 @@ export class AddRssFeedComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    console.log(this.form.value);
     if (this.form.invalid) {
       console.log(this.form.errors);
       return;
@@ -63,10 +63,6 @@ export class AddRssFeedComponent implements OnInit {
           this.loading = false;
         }
       );
-  }
-
-  save() {
-    this.router.navigate(['/viewRss']);
   }
 
   onCancel() {

@@ -37,9 +37,7 @@
           Дата обновления не введена!
         </div>
       </div>
-    </div>
-    <div class="btn-class">
-      <button button (click)="save()" [disabled]="form.invalid" class="btn btn-success">Добавить</button>
+      <button onclick="window.location.href = '/viewRss';" [disabled]="form.invalid" class="btn btn-success">Добавить</button>
       <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
     </div>
   </form>
