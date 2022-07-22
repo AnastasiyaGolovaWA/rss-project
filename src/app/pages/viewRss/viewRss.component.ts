@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RssFeedService } from 'src/app/services';
 import { RssFeed } from 'src/app/models';
 import { Observable } from 'rxjs';
+import { ParseSourceFile } from '@angular/compiler';
 
 @Component({
   selector: 'view-rss',
@@ -17,6 +18,13 @@ export class ViewRssComponent implements OnInit {
 
   reloadData() {
     this.rssFeeds = this.rssFeedService.findAll();
+  }
+
+  getCurrentValue(position: boolean) {
+    if (position == true) {
+      return "Включена"
+    }
+    else return "Выключена"
   }
 
   delete(id: string) {

@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let rssFeed of rssFeeds | async">
-            <td>{{rssFeed.currentPosition}}</td>
+            <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
             <td>{{rssFeed.url}}</td>
             <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
             <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
