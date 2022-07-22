@@ -1,5 +1,5 @@
 <h1 class="tittle">Добавленные rss-ленты</h1>
-<button class="new-btn" onclick="window.location.href = '/saveRssFeed';"><a>Добавить новую ленту</a></button>
+<button class="new-btn btn btn-dark" onclick="window.location.href = '/saveRssFeed';"><a>Добавить новую ленту</a></button>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -27,7 +27,7 @@
             <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
             <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
             <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button></td>
-            <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)" class="btn btn-success">Вкл/Выкл</button></td>
+            <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)" class="btn btn-light">Вкл/Выкл</button></td>
         </tr>
     </tbody>
 </table>
