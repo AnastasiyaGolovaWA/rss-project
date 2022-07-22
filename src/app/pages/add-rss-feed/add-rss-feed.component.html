@@ -1,25 +1,32 @@
-<div class="col-md-6">
-    <h2 class="text-center">Добавить rss ленту</h2>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-        <div class="form-group">
-            <label for="name">Текущая позиция:</label>
-            <input formControlName="currentPosition" placeholder="Название спецтехники" name="currentPosition" class="form-control" id="currentPosition">
-        </div>
-        <div class="form-group">
-            <label for="url">Url:</label>
-            <input formControlName="url" placeholder="Информация о спецтехнике" name="url" class="form-control" id="url">
-          </div>
-          <div class="form-group">
-            <label for="dateCreated">Дата создания:</label>
-            <input formControlName="dateCreated" placeholder="" name="dateCreated" class="form-control" id="dateCreated">
-          </div>
-          <div class="form-group">
-            <label for="dateUpdated">Дата обновления:</label>
-            <input formControlName="dateUpdated" placeholder="" name="dateUpdated" class="form-control"
-              id="dateUpdated">
-          </div>
-        <button button [disabled]="form.invalid" class="btn btn-success">Добавить</button>
-        <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
-    </form>
+<div class="col-md-6 form">
+  <h1 class="text-center">Добавить rss ленту</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Текущая позиция:</label>
+      <div class="form-control size">
+        <label><input type="radio" formControlName="currentPosition" value="true" name="currentPosition">Включить
+          уведомления
+        </label>
+        <br><label><input type="radio" formControlName="currentPosition" value="false" name="currentPosition">Отключить
+          уведомления
+        </label>
+      </div>
+    </div>
+    <div class="form-group url-field">
+      <label for="url">Url:</label>
+      <input formControlName="url" name="url" class="form-control size" id="url">
+    </div>
+    <div class="form-group url-field">
+      <label for="dateCreated">Дата создания:</label>
+      <input formControlName="dateCreated" placeholder="yyyy-MM-dd" name="dateCreated" class="form-control size"
+        id="dateCreated">
+    </div>
+    <div class="form-group url-field">
+      <label for="dateUpdated">Дата обновления:</label>
+      <input formControlName="dateUpdated" placeholder="yyyy-MM-dd" name="dateUpdated" class="form-control size"
+        id="dateUpdated">
+    </div>
+    <a routerLink="../viewRss" class="btn btn-success">Добавить</a>
+    <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
+  </form>
 </div>

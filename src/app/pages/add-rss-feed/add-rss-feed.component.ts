@@ -8,6 +8,7 @@ import { RssFeedService } from "src/app/services";
 @Component({
   selector: 'app-add-rss-feed',
   templateUrl: './add-rss-feed.component.html',
+  styleUrls: ['./add-rss-feed.component.scss']
 })
 
 export class AddRssFeedComponent implements OnInit {
@@ -57,6 +58,7 @@ export class AddRssFeedComponent implements OnInit {
         }
       );
   }
+
 
   onCancel() {
     this.router.navigate(['/viewRss']);
