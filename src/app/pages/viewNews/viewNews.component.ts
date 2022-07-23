@@ -29,17 +29,6 @@ export class ViewNewsComponent implements OnInit {
     );
   }
 
-  searchByParameters(tittle: string, description: string) {
-    this.newsService.findByTittleOrDesc(tittle, description)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-    this.reloadData();
-  }
-
   onTableDataChange(event: any) {
     this.page = event;
     this.reloadData();
@@ -48,6 +37,21 @@ export class ViewNewsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.reloadData();
+  }
+
+  clearNews() {
+    this.newsService.clearNews().subscribe(
+      (response) => {
+        this.news = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  addRss() {
+
   }
 
   ngOnInit() {

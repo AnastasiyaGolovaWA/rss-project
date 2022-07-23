@@ -15,7 +15,7 @@ export class NewsFeedService {
         return this.http.get(`${this.newsUrl + '/getAll'}`);
     }
 
-    public findByTittleOrDesc(tittle: string, description: string): Observable<any> {
-        return this.http.get(`${this.newsUrl + '/showByParametres'}`);
+    public clearNews(): Observable<any> {
+        return this.http.put(`${this.newsUrl + '/clear'}`, {});
     }
 }
