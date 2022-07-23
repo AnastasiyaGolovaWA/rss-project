@@ -23,7 +23,7 @@
           let i = index
         ">
             <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
-            <td>{{rssFeed.url}}</td>
+            <td><a href="{{rssFeed.url}}">{{rssFeed.url}}</a></td>
             <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
             <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
             <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button></td>
