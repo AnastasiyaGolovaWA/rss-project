@@ -1,7 +1,4 @@
 <h1 class="tittle">Новости</h1>
-<label for="findNews">Найти новость по заголовку или описанию:</label>
-<input formControlName="findNews" name="findNews" class="form-control size" id="findNews">
-<button (click)="searchByParameters('Lenta.ru', 'Новости, статьи, фотографии, видео. Семь дней в неделю, 24 часа в сутки.')" class="btn btn-light">Вкл/Выкл</button>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -23,7 +20,7 @@
           let i = index
         ">
             <td>{{new.tittle}}</td>
-            <td>{{new.link}}</td>
+            <td><a href="{{new.link}}">{{new.link}}</a></td>
             <td>{{new.description}}</td>
             <td>{{new.pubDate| date:'yyyy-MM-dd'}}</td>
         </tr>

@@ -43,17 +43,6 @@ export class ViewElasticComponent implements OnInit {
     }
   }
 
-  reloadRes(tittle: string) {
-    this.elasticService.searchByTittle(tittle).subscribe(
-      (response) => {
-        this.news = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
   searchByTittleOrDescription(word: string) {
     this.elasticService.searchByTittleOrDescription(word).subscribe(
       (response) => {

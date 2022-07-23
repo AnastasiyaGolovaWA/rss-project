@@ -1,16 +1,12 @@
 <h1 class="tittle">Полнотекстовый поиск</h1>
-<button (click)="reloadRes('чечни')" class="btn btn-light">Поиск по заголовку</button>
-
 <form [formGroup]="form">
     <div class="form-group url-field">
         <label for="searchByTittleOrDescription">Поиск по заголовку или описанию:</label>
         <input formControlName="searchByTittleOrDescription" name="searchByTittleOrDescription"
             class="form-control size" id="searchByTittleOrDescription">
+        <button (click)="searchByTittleOrDescription(findSearchWord())" class="new-btn btn btn-success">Искать</button>
     </div>
 </form>
-<button (click)="searchByTittleOrDescription(findSearchWord())" class="btn btn-light">Поиск
-    по заголовку или
-    описанию</button>
 
 <table class="table">
     <thead class="thead-dark">
@@ -33,7 +29,7 @@
           let i = index
         ">
             <td>{{new.tittle}}</td>
-            <td>{{new.link}}</td>
+            <td><a href="{{new.link}}">{{new.link}}</a></td>
             <td>{{new.description}}</td>
             <td>{{new.pubDate| date:'yyyy-MM-dd'}}</td>
         </tr>
