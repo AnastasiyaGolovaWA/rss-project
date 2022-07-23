@@ -16,7 +16,7 @@ export class AddRssNewsComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-  rssFeeds: RssFeed[];
+  rssFeed: any;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class AddRssNewsComponent implements OnInit {
     });
     this.rssFeedService.findAll().subscribe(
       (response) => {
-        this.rssFeeds = response;
+        this.rssFeed = response;
       },
       (error) => {
         console.log(error);

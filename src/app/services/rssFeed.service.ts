@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { RssFeed } from '../models';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class RssFeedService {
@@ -12,8 +11,8 @@ export class RssFeedService {
         this.rssFeedsUrl = 'http://localhost:8080/rssFeed';
     }
 
-    public findAll() {
-        return this.http.get<RssFeed[]>(`${this.rssFeedsUrl + '/getAll'}`);
+    public findAll(): Observable<Object> {
+        return this.http.get(`${this.rssFeedsUrl + '/getAll'}`);
     }
 
     public save(rssFeed: Object): Observable<Object> {

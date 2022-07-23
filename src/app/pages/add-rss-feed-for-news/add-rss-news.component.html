@@ -4,14 +4,13 @@
     <div class="rss-form">
       <label for="name">Список лент:</label>
       <div class="form-group">
-        <select multiple formControlName="feeds">
-          <option *ngFor="let rss of rssFeeds">
+        <select formControlName="feeds" name="feeds" class="form-control size" id="feeds">
+          <option [ngValue]="rss" *ngFor="let rss of rssFeed">
             {{ rss.url }}
           </option>
         </select>
       </div>
-      <button onclick="window.location.href = '/viewNews';" [disabled]="form.invalid"
-        class="btn btn-success">Добавить</button>
+      <button [disabled]="form.invalid" class="btn btn-success">Добавить</button>
       <button class="btn btn-danger ml-2 " (click)="onCancel()">Выйти</button>
     </div>
   </form>
