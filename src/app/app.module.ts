@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddRssNewsComponent } from './pages/add-rss-feed-for-news';
 import { AddRssFeedComponent } from './pages/add-rss-feed/add-rss-feed.component';
 import { HomeComponent } from './pages/home';
 import { ViewElasticComponent } from './pages/viewElastic/viewElastic.component';
@@ -15,7 +16,7 @@ import { ElasticSearchService, NewsFeedService, RssFeedService } from './service
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule, FormsModule, CommonModule, NgxPaginationModule],
-  declarations: [AppComponent, HomeComponent, ViewRssComponent, AddRssFeedComponent, ViewNewsComponent, ViewElasticComponent],
+  declarations: [AppComponent, HomeComponent, ViewRssComponent, AddRssFeedComponent, ViewNewsComponent, ViewElasticComponent, AddRssNewsComponent],
   providers: [RssFeedService, NewsFeedService, ElasticSearchService],
   bootstrap: [AppComponent]
 })

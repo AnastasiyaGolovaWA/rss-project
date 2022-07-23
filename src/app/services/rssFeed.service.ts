@@ -12,8 +12,8 @@ export class RssFeedService {
         this.rssFeedsUrl = 'http://localhost:8080/rssFeed';
     }
 
-    public findAll(): Observable<any> {
-        return this.http.get(`${this.rssFeedsUrl + '/getAll'}`);
+    public findAll() {
+        return this.http.get<RssFeed[]>(`${this.rssFeedsUrl + '/getAll'}`);
     }
 
     public save(rssFeed: Object): Observable<Object> {

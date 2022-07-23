@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RssFeed } from '../models';
 
 @Injectable()
 export class NewsFeedService {
@@ -17,5 +18,9 @@ export class NewsFeedService {
 
     public clearNews(): Observable<any> {
         return this.http.put(`${this.newsUrl + '/clear'}`, {});
+    }
+
+    public addRss(rssFeed: RssFeed[]): Observable<Object> {
+        return this.http.post(`${this.newsUrl + '/add'}`, rssFeed);
     }
 }
