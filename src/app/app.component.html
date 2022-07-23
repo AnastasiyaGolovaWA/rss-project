@@ -2,11 +2,13 @@
   <div class="navbar-nav">
     <a class="nav-item nav-link  menu-items" [routerLink]="'/'"> О сервисе</a>
     <a class="nav-item nav-link" [routerLink]="'/viewRss'"> Просмотреть rss-ленты</a>
+    <a class="nav-item nav-link" [routerLink]="'/viewNews'"> Просмотреть новости</a>
+    <a class="nav-item nav-link" [routerLink]="'/viewElastic'"> Полнотекстовый поиск</a>
   </div>
 </nav>
 
 <div class="container">
-    <div class="main">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
 </div>
