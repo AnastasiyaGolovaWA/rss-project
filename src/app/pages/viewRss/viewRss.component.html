@@ -11,8 +11,8 @@
                         <th scope="col">Url</th>
                         <th scope="col">Дата добавления</th>
                         <th scope="col">Дата обновления</th>
-                        <th scope="col">Удалить</th>
                         <th scope="col">Вкл/Выкл ленту</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,12 +28,15 @@
                   ">
                         <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
                         <td><a href="{{rssFeed.url}}">{{rssFeed.url}}</a></td>
-                        <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
-                        <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
-                        <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button>
-                        </td>
+                        <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd HH:mm:ss'}}</td>
                         <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)"
-                                class="btn btn-light">Вкл/Выкл</button></td>
+                            class="btn btn-light">Вкл/Выкл</button></td>
+                        <td><button class="btn-class" (click)="delete(rssFeed.idRss)">
+                                <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png"
+                                    width="35px" height="35px" alt="" style="vertical-align:middle">
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
