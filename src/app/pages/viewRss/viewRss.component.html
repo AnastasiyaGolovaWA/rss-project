@@ -1,37 +1,46 @@
 <h1 class="tittle">Добавленные rss-ленты</h1>
-<button class="new-btn btn btn-dark" onclick="window.location.href = '/saveRssFeed';"><a>Добавить новую ленту</a></button>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Текущая позиция</th>
-            <th scope="col">Url</th>
-            <th scope="col">Дата добавления</th>
-            <th scope="col">Дата обновления</th>
-            <th scope="col">Удалить</th>
-            <th scope="col">Вкл/Выкл ленту</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="
-          let rssFeed of rssFeeds
-            | paginate
-              : {
-                  itemsPerPage: tableSize,
-                  currentPage: page,
-                  totalItems: count
-                };
-          let i = index
-        ">
-            <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
-            <td><a href="{{rssFeed.url}}">{{rssFeed.url}}</a></td>
-            <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
-            <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
-            <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button></td>
-            <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)" class="btn btn-light">Вкл/Выкл</button></td>
-        </tr>
-    </tbody>
-</table>
-<div class="d-flex justify-content-center">
-    <pagination-controls previousLabel="Назад" nextLabel="Вперед" (pageChange)="onTableDataChange($event)">
-    </pagination-controls>
+<button class="new-btn btn btn-dark" onclick="window.location.href = '/saveRssFeed';"><a>Добавить новую
+        ленту</a></button>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-2 mb-1">
+            <table class="table table-bordered" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Текущая позиция</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Дата добавления</th>
+                        <th scope="col">Дата обновления</th>
+                        <th scope="col">Удалить</th>
+                        <th scope="col">Вкл/Выкл ленту</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="
+                    let rssFeed of rssFeeds
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          };
+                    let i = index
+                  ">
+                        <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
+                        <td><a href="{{rssFeed.url}}">{{rssFeed.url}}</a></td>
+                        <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
+                        <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
+                        <td><button (click)="delete(rssFeed.idRss)" class="btn btn-danger btn-delete">Удалить</button>
+                        </td>
+                        <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)"
+                                class="btn btn-light">Вкл/Выкл</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <pagination-controls previousLabel="Назад" nextLabel="Вперед" (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
 </div>
