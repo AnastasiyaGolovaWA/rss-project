@@ -44,14 +44,17 @@ export class ViewElasticComponent implements OnInit {
   }
 
   searchByTittleOrDescription(word: string) {
-    this.elasticService.searchByTittleOrDescription(word).subscribe(
-      (response) => {
-        this.news = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (word) {
+      this.elasticService.searchByTittleOrDescription(word).subscribe(
+        (response) => {
+          this.news = response;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+    else this.reloadData();
   }
 
   onTableDataChange(event: any) {
