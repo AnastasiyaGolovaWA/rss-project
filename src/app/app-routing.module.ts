@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddRssFeedComponent } from './pages/add-rss-feed';
-import { AddRssNewsComponent } from './pages/add-rss-feed-for-news';
 import { HomeComponent } from './pages/home';
 import { ViewElasticComponent } from './pages/viewElastic';
 import { ViewNewsComponent } from './pages/viewNews';
@@ -22,9 +21,6 @@ const routes: Routes = [
   },
   {
     path: 'viewElastic', component: ViewElasticComponent
-  },
-  {
-    path: 'addRssForNews', component: AddRssNewsComponent
   }
 ];
 @NgModule({

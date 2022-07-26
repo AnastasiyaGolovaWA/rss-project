@@ -20,7 +20,7 @@ export class NewsFeedService {
         return this.http.put(`${this.newsUrl + '/clear'}`, {});
     }
 
-    public addRss(rssFeed: RssFeed[]): Observable<Object> {
+    public addRss(rssFeed: RssFeed[]): Observable<any> {
         return this.http.post(`${this.newsUrl + '/add'}`, rssFeed);
     }
 }
