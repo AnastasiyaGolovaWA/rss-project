@@ -43,15 +43,13 @@ export class ViewNewsComponent implements OnInit {
     this.newsService.clearNews().subscribe(
       (response) => {
         this.news = response;
+        this.reloadData();
       },
       (error) => {
         console.log(error);
       }
     );
-  }
-
-  addRss() {
-
+    this.reloadData();
   }
 
   ngOnInit() {
