@@ -34,7 +34,8 @@ export class ViewElasticComponent implements OnInit {
   }
 
   form = new FormGroup({
-    searchByTittleOrDescription: new FormControl()
+    searchByTittleOrDescription: new FormControl(),
+    searchByTittle: new FormControl()
   });
 
   findSearchWord() {
@@ -43,9 +44,29 @@ export class ViewElasticComponent implements OnInit {
     }
   }
 
+  findSearch() {
+    if (this.form) {
+      return this.form.get('searchByTittle')?.value;
+    }
+  }
+
   searchByTittleOrDescription(word: string) {
     if (word) {
       this.elasticService.searchByTittleOrDescription(word).subscribe(
+        (response) => {
+          this.news = response;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+    else this.reloadData();
+  }
+
+  searchByTittle(word: string) {
+    if (word) {
+      this.elasticService.searchByTittle(word).subscribe(
         (response) => {
           this.news = response;
         },

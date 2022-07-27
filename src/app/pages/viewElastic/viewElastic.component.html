@@ -6,6 +6,12 @@
             class="form-control size" id="searchByTittleOrDescription">
         <button (click)="searchByTittleOrDescription(findSearchWord())" class="new-btn btn btn-success">Искать</button>
     </div>
+    <div class="form-group url-field">
+        <label for="searchByTittleOrDescription">Поиск по заголовку:</label>
+        <input formControlName="searchByTittle" name="searchByTittle"
+            class="form-control size" id="searchByTittle">
+            <button (click)="searchByTittle(findSearch())" class="new-btn btn btn-success">Искать</button>
+    </div>
 </form>
 <div class="container">
     <div class="row">
