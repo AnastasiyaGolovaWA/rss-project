@@ -3,8 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { first } from "rxjs/operators";
-import { RssFeed } from "src/app/models";
-import { NewsFeedService, RssFeedService } from "src/app/services";
+import { RssFeedService } from "src/app/services";
 
 @Component({
   selector: 'app-add-rss-feed',
@@ -16,14 +15,12 @@ export class AddRssFeedComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-  rssFeed: RssFeed[];
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private rssFeedService: RssFeedService,
-    private newsService: NewsFeedService
+    private rssFeedService: RssFeedService
   ) { }
 
   ngOnInit() {
@@ -34,14 +31,6 @@ export class AddRssFeedComponent implements OnInit {
       dateCreated: ['', Validators.required],
       dateUpdated: ['', Validators.required]
     });
-    this.rssFeedService.findAll().subscribe(
-      (response) => {
-        this.rssFeed = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   }
 
   isInvalid(name: string) {
@@ -75,8 +64,6 @@ export class AddRssFeedComponent implements OnInit {
           this.loading = false;
         }
       );
-
-    this.newsService.addRss(this.rssFeed);
   }
 
   onCancel() {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RssFeedService } from 'src/app/services';
+import { RssFeed } from 'src/app/models';
+import { NewsFeedService, RssFeedService } from 'src/app/services';
 
 @Component({
   selector: 'view-rss',
@@ -8,20 +9,22 @@ import { RssFeedService } from 'src/app/services';
 })
 export class ViewRssComponent implements OnInit {
 
-  rssFeeds: any;
+  rssFeeds: RssFeed[];
 
   page: number = 1;
   count: number = 0;
   tableSize: number = 7;
   tableSizes: any = [3, 6, 9, 12];
 
-  constructor(private rssFeedService: RssFeedService) {
+  constructor(private rssFeedService: RssFeedService, private newsService: NewsFeedService) {
   }
 
   reloadData() {
     this.rssFeedService.findAll().subscribe(
       (response) => {
         this.rssFeeds = response;
+        console.log(this.rssFeeds);
+        this.newsService.addRss(this.rssFeeds);
       },
       (error) => {
         console.log(error);
@@ -66,7 +69,7 @@ export class ViewRssComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
-        this.reloadData();
+    this.reloadData();
   }
 
   ngOnInit() {
