@@ -62,6 +62,14 @@ export class ViewRssComponent implements OnInit {
   }
 
   update(id: string, value: boolean) {
+    this.rssFeedService.updateDate(id, !value)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+    this.reloadData();
     this.rssFeedService.updateCurrentValue(id, !value)
       .subscribe(
         data => {

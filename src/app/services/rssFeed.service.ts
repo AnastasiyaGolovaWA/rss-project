@@ -27,4 +27,8 @@ export class RssFeedService {
     public updateCurrentValue(id: string, value: any): Observable<any> {
         return this.http.put(`${this.rssFeedsUrl + '/changeCurrentPosition'}/${id}`, value);
     }
+
+    public updateDate(id: string, value: any): Observable<any> {
+        return this.http.put(`${this.rssFeedsUrl + '/changeUpdateDate'}/${id}`, value);
+    }
 }

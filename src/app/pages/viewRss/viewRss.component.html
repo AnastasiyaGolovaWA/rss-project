@@ -28,8 +28,8 @@
                   ">
                         <td>{{getCurrentValue(rssFeed.currentPosition)}}</td>
                         <td><a href="{{rssFeed.url}}">{{rssFeed.url}}</a></td>
-                        <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                        <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{rssFeed.dateCreated| date:'yyyy-MM-dd'}}</td>
+                        <td>{{rssFeed.dateUpdated| date:'yyyy-MM-dd'}}</td>
                         <td><button (click)="update(rssFeed.idRss, rssFeed.currentPosition)"
                             class="btn btn-light">Вкл/Выкл</button></td>
                         <td><button class="btn-class" (click)="delete(rssFeed.idRss)">

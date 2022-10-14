@@ -1,4 +1,5 @@
 
+import { DatePipe } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -15,21 +16,23 @@ export class AddRssFeedComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
+  myDate = new Date();
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private rssFeedService: RssFeedService
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       id: [],
       currentPosition: ['', Validators.required],
       url: ['', Validators.required],
-      dateCreated: ['', Validators.required],
-      dateUpdated: ['', Validators.required]
+      dateCreated: this.myDate,
+      dateUpdated: ['']
     });
   }
 
