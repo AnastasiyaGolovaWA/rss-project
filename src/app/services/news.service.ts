@@ -7,13 +7,19 @@ import { RssFeed } from '../models';
 export class NewsFeedService {
 
     private newsUrl: string;
+    private rssNewsUrl: string;
 
     constructor(private http: HttpClient) {
         this.newsUrl = 'http://localhost:8080/news';
+        this.rssNewsUrl = 'http://localhost:8080/rssNews'
     }
 
     public findAll(): Observable<any> {
         return this.http.get(`${this.newsUrl + '/getAll'}`);
+    }
+
+    public rssNewsClear(): Observable<any> {
+        return this.http.put(`${this.rssNewsUrl + '/clear'}`, {});
     }
 
     public clearNews(): Observable<any> {

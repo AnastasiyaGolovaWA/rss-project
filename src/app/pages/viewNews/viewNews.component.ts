@@ -40,6 +40,15 @@ export class ViewNewsComponent implements OnInit {
   }
 
   clearNews() {
+    this.newsService.rssNewsClear().subscribe(
+      (response) => {
+        this.news = response;
+        this.reloadData();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.newsService.clearNews().subscribe(
       (response) => {
         this.news = response;
