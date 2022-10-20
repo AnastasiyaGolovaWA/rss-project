@@ -1,12 +1,13 @@
 <h1 class="tittle">Полнотекстовый поиск</h1>
+<button (click)="reload()" class="new-btn-update btn btn-success">Обновить данные</button>
 <form [formGroup]="form">
     <div class="form-group url-field">
-        <label for="searchByTittleOrDescription">Поиск по заголовку или описанию:</label>
+        <label for="searchByTittleOrDescription">Поиск по описанию:</label>
         <input formControlName="searchByTittleOrDescription" name="searchByTittleOrDescription"
             class="form-control size" id="searchByTittleOrDescription">
         <button (click)="searchByTittleOrDescription(findSearchWord())" class="new-btn btn btn-success">Искать</button>
     </div>
-    <div class="form-group url-field">
+    <div class="form-group url-field search-desc">
         <label for="searchByTittleOrDescription">Поиск по заголовку:</label>
         <input formControlName="searchByTittle" name="searchByTittle"
             class="form-control size" id="searchByTittle">

@@ -55,6 +55,7 @@ export class ViewElasticComponent implements OnInit {
       this.elasticService.searchByTittleOrDescription(word).subscribe(
         (response) => {
           this.news = response;
+          console.log(response)
         },
         (error) => {
           console.log(error);
@@ -76,6 +77,10 @@ export class ViewElasticComponent implements OnInit {
       )
     }
     else this.reloadData();
+  }
+
+  reload() {
+    this.reloadData();
   }
 
   onTableDataChange(event: any) {
