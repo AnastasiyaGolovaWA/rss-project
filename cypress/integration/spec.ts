@@ -14,3 +14,12 @@ describe('Просмотр rss-лент', () => {
     cy.get(':nth-child(5) > :nth-child(6) > .btn-class').click(); 
   }); 
 });
+
+describe('Просмотреть новости', () => { 
+  it('на главной странице должен отображаться заголовок', () => { 
+    cy.visit('/viewNews' );  
+    cy.get('.tittle').should('have.text', 'Новости');
+
+  }); 
+});
+
