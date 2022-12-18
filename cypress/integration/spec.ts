@@ -44,3 +44,30 @@ describe('Просмотреть новости', () => {
   }); 
 });
 
+describe('Полнотекстовый поиск', () => { 
+  it('на главной странице должен отображаться заголовок', () => { 
+    cy.visit('/viewElastic' );  
+    cy.get('.tittle').should('have.text', 'Полнотекстовый поиск');
+
+  }); 
+  it('получить название заголовков таблицы', () => {  
+    cy.get('thead > tr > :nth-child(1)').should('have.text', 'Заголовок');
+    cy.get('thead > tr > :nth-child(2)').should('have.text', 'Ссылка');
+    cy.get('thead > tr > :nth-child(3)').should('have.text', 'Описание');
+    cy.get('thead > tr > :nth-child(4)').should('have.text', 'Дата публикации');
+  }); 
+  it('поиск по заголовку', () => {  
+    cy.get('#searchByTittle').type('Ученые').should('have.value', 'Ученые');
+    cy.get(':nth-child(1) > .new-btn').click();
+    cy.get('tbody > :nth-child(1) > :nth-child(1)').should('have.text', 'Ученые отправили эмбриональные клетки мышей на МКС, чтобы оценить риски долгосрочных полетов в космос');
+    cy.get('#searchByTittle').clear();
+    cy.get('.new-btn-update').click();
+  }); 
+  it('поиск по описанию', () => {  
+    cy.get('#searchByTittleOrDescription').type('вид').should('have.value', 'вид');
+    cy.get('.search-desc > .new-btn').click();
+    cy.get('tbody > :nth-child(1) > :nth-child(3)').should('have.text', 'В фантастике неоднократно появлялись вымышленные виды, которые ради собственного выживания ассимилировали чужие гены и заставляли их работать себе на пользу. Теперь на совершенно не выдуманной планете Земля ученые обнаружили, что один из видов микроорганизмов вобрал в себя ДНК от множества других видов и готов помочь человечеству справиться с глобальным потеплением.');
+    cy.get('#searchByTittleOrDescription').clear();
+  }); 
+});
+
