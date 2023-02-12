@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddRssFeedComponent } from './pages/add-rss-feed/add-rss-feed.component';
 import { HomeComponent } from './pages/home';
+import { InfoComponent } from './pages/info';
 import { ViewElasticComponent } from './pages/viewElastic/viewElastic.component';
 import { ViewNewsComponent } from './pages/viewNews/viewNews.component';
 import { ViewRssComponent } from './pages/viewRss';
@@ -15,7 +16,7 @@ import { ElasticSearchService, NewsFeedService, RssFeedService } from './service
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule, FormsModule, CommonModule, NgxPaginationModule],
-  declarations: [AppComponent, HomeComponent, ViewRssComponent, AddRssFeedComponent, ViewNewsComponent, ViewElasticComponent],
+  declarations: [AppComponent, HomeComponent, ViewRssComponent, AddRssFeedComponent, ViewNewsComponent, ViewElasticComponent, InfoComponent],
   providers: [RssFeedService, NewsFeedService, ElasticSearchService],
   bootstrap: [AppComponent]
 })
