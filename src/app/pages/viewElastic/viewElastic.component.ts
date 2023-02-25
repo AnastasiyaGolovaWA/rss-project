@@ -13,12 +13,11 @@ export class ViewElasticComponent implements OnInit {
 
   //form: FormGroup;
   private formBuilder: FormBuilder;
-
   page: number = 1;
   count: number = 0;
   tableSize: number = 7;
   tableSizes: any = [3, 6, 9, 12];
-
+  now: Date = new Date();
   constructor(private elasticService: ElasticSearchService) {
   }
 
