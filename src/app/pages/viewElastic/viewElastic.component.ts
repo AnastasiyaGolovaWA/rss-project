@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ElasticSearchService } from 'src/app/services';
 import { DatePipe, formatDate } from '@angular/common'
+import { DxDateBoxComponent } from 'devextreme-angular/ui/date-box';
 
 @Component({
   selector: 'view-elastic',
@@ -11,6 +12,7 @@ import { DatePipe, formatDate } from '@angular/common'
 export class ViewElasticComponent implements OnInit {
 
   news: any;
+  @ViewChild(DxDateBoxComponent, { static: false, read: DxDateBoxComponent }) dateBox: DxDateBoxComponent;
 
   //form: FormGroup;
   private formBuilder: FormBuilder;
@@ -86,7 +88,6 @@ export class ViewElasticComponent implements OnInit {
   }
 
   searchByDate(date: string, date1: string) {
-    console.log(date)
     if (date) {
       this.elasticService.searchByDate(date, date1).subscribe(
         (response) => {
@@ -116,6 +117,7 @@ export class ViewElasticComponent implements OnInit {
   }
 
   reload() {
+    this.dateBox.instance.reset();
     this.form.reset();
     this.reloadData();
   }
