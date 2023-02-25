@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,7 +42,7 @@ import { DxDateBoxModule } from 'devextreme-angular';
     DxDateBoxModule
   ],
   declarations: [AppComponent, HomeComponent, ViewRssComponent, AddRssFeedComponent, ViewNewsComponent, ViewElasticComponent, InfoComponent, CalendarComponent],
-  providers: [RssFeedService, NewsFeedService, ElasticSearchService],
+  providers: [RssFeedService, NewsFeedService, ElasticSearchService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,5 @@
 <h1 class="tittle">Полнотекстовый поиск</h1>
 <button (click)="reload()" class="new-btn-update btn btn-success">Обновить данные</button>
-<dx-date-box    
-    type="datetime">
-</dx-date-box>
 <form [formGroup]="form">
     <div class="form-group url-field">
         <label for="searchByTittleOrDescription">Поиск по заголовку:</label>
@@ -15,6 +12,35 @@
             class="form-control size" id="searchByTittleOrDescription">
             <button (click)="searchByTittleOrDescription(findSearchWord())" class="new-btn btn btn-success">Искать</button>
     </div>
+    <div class="dx-field">
+        <div class="dx-field-label">Дата начала поиска:</div>
+        <div class="dx-field-value">
+          <dx-date-box 
+          id="date" 
+          pickerType="rollers" 
+          width="10px" 
+          displayFormat="yyyy-MM-dd"
+          type="date"
+          (onValueChanged)="onValueChanged($event)">
+          >
+          > </dx-date-box>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Дата конца поиска:</div>
+        <div class="dx-field-value">
+          <dx-date-box 
+          id="date1" 
+          pickerType="rollers" 
+          width="10px" 
+          displayFormat="yyyy-MM-dd"
+          type="date"
+          (onValueChanged)="onValueChanged1($event)">
+          >
+          > </dx-date-box>
+        </div>
+      </div>
+      <button (click)="searchByDate(this.date, this.date1)" class="new-success">Искать</button>
 </form>
 <div class="container">
     <div class="row">

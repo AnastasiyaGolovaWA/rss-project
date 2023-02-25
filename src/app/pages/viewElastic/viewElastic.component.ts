@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ElasticSearchService } from 'src/app/services';
+import { DatePipe, formatDate } from '@angular/common'
 
 @Component({
   selector: 'view-elastic',
@@ -18,6 +19,8 @@ export class ViewElasticComponent implements OnInit {
   tableSize: number = 7;
   tableSizes: any = [3, 6, 9, 12];
   now: Date = new Date();
+  date: string
+  date1: string
   constructor(private elasticService: ElasticSearchService) {
   }
 
@@ -34,7 +37,8 @@ export class ViewElasticComponent implements OnInit {
 
   form = new FormGroup({
     searchByTittleOrDescription: new FormControl(),
-    searchByTittle: new FormControl()
+    searchByTittle: new FormControl(),
+    date: new FormControl()
   });
 
   findSearchWord() {
@@ -52,6 +56,38 @@ export class ViewElasticComponent implements OnInit {
   searchByTittleOrDescription(word: string) {
     if (word) {
       this.elasticService.searchByTittleOrDescription(word).subscribe(
+        (response) => {
+          this.news = response;
+          console.log(response)
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+    else this.reloadData();
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+    const day = ("0" + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  }
+
+  onValueChanged(e: { previousValue: any; value: any; }) {
+    this.date = this.formatDate(e.value)
+  }
+
+  onValueChanged1(e: { previousValue: any; value: any; }) {
+    this.date1 = this.formatDate(e.value)
+  }
+
+  searchByDate(date: string, date1: string) {
+    console.log(date)
+    if (date) {
+      this.elasticService.searchByDate(date, date1).subscribe(
         (response) => {
           this.news = response;
           console.log(response)
