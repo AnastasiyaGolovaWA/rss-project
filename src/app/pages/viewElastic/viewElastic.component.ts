@@ -116,6 +116,7 @@ export class ViewElasticComponent implements OnInit {
   }
 
   reload() {
+    this.form.reset();
     this.reloadData();
   }
 

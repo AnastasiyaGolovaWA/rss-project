@@ -1,5 +1,4 @@
 <h1 class="tittle">Полнотекстовый поиск</h1>
-<!--button (click)="reload()" class="new-btn-update btn btn-success">Обновить данные</button-->
 <form [formGroup]="form">
     <div class="form-group-url-field">
         <a>Поиск по заголовку:</a>
@@ -27,6 +26,7 @@
           >
           > </dx-date-box>
         </div>
+        <button (click)="reload()" class="new-btn-update btn btn-success">Очистить фильтры</button>
       </div>
       <div class="dx-field">
         <a>Дата конца поиска:</a>
