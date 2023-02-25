@@ -82,6 +82,7 @@ export class ViewElasticComponent implements OnInit {
 
   onValueChanged1(e: { previousValue: any; value: any; }) {
     this.date1 = this.formatDate(e.value)
+    this.searchByDate(this.date, this.date1)
   }
 
   searchByDate(date: string, date1: string) {
