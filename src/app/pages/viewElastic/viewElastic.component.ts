@@ -12,7 +12,8 @@ import { DxDateBoxComponent } from 'devextreme-angular/ui/date-box';
 export class ViewElasticComponent implements OnInit {
 
   news: any;
-  @ViewChild(DxDateBoxComponent, { static: false, read: DxDateBoxComponent }) dateBox: DxDateBoxComponent;
+  @ViewChild('dateBox1') dateBox1!: DxDateBoxComponent;
+  @ViewChild('dateBox2') dateBox2!: DxDateBoxComponent;
 
   //form: FormGroup;
   private formBuilder: FormBuilder;
@@ -116,8 +117,13 @@ export class ViewElasticComponent implements OnInit {
     else this.reloadData();
   }
 
+  reloadDateBox() {
+    this.dateBox1.instance.reset(); // сбрасываем значение первого dx-date-box
+    this.dateBox2.instance.reset(); // сбрасываем значение второго dx-date-box
+  }
+
   reload() {
-    this.dateBox.instance.reset();
+    this.reloadDateBox();
     this.form.reset();
     this.reloadData();
   }
