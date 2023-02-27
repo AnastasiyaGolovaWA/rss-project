@@ -22,6 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { DxButtonModule } from 'devextreme-angular';
 import { DxCalendarModule } from 'devextreme-angular';
 import { DxDateBoxModule } from 'devextreme-angular';
+import { locale, loadMessages } from 'devextreme/localization';
+
+locale('ru');
 
 @NgModule({
   imports: [

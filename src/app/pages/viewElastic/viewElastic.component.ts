@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ElasticSearchService } from 'src/app/services';
-import { DatePipe, formatDate } from '@angular/common'
 import { DxDateBoxComponent } from 'devextreme-angular/ui/date-box';
 
 @Component({
@@ -24,7 +23,16 @@ export class ViewElasticComponent implements OnInit {
   now: Date = new Date();
   date: string
   date1: string
+
+  locale: string;
+
   constructor(private elasticService: ElasticSearchService) {
+  }
+
+
+  getLocale() {
+    const locale = sessionStorage.getItem('locale');
+    return locale != null ? locale : 'en';
   }
 
   reloadData() {
