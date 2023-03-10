@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddRssFeedComponent } from './pages/add-rss-feed';
 import { HomeComponent } from './pages/home';
 import { InfoComponent } from './pages/info';
-import { ViewElasticComponent } from './pages/viewElastic';
+import { ViewElasticComponent } from './pages/viewElastic/viewElastic.component';
 import { ViewNewsComponent } from './pages/viewNews';
 import { ViewRssComponent } from './pages/viewRss';
 
