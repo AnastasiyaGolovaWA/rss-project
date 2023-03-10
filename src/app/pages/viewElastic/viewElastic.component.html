@@ -1,31 +1,40 @@
 <h1 class="tittle">Полнотекстовый поиск</h1>
 <form [formGroup]="form" class="form-inline">
     <div class="search-block ml-auto">
-      <div class="form-group-url-field">
-        <a>Поиск по заголовку:</a>
-        <input formControlName="searchByTittle" name="searchByTittle" class="form-control size" id="searchByTittle">
-      </div>
-      <div class="search-desc">
-        <a for="searchByTittleOrDescription">Поиск по описанию:</a>
-        <input formControlName="searchByTittleOrDescription" name="searchByTittleOrDescription" class="form-control size" id="searchByTittleOrDescription">
-      </div>
+        <div class="form-group-url-field">
+            <a>Поиск по заголовку:</a>
+            <input formControlName="searchByTittle" name="searchByTittle" class="form-control size" id="searchByTittle">
+        </div>
+        <div class="search-desc">
+            <a for="searchByTittleOrDescription">Поиск по описанию:</a>
+            <input formControlName="searchByTittleOrDescription" name="searchByTittleOrDescription"
+                class="form-control size" id="searchByTittleOrDescription">
+        </div>
     </div>
     <div class="search-date ml-auto">
-      <div class="dx-field">
-        <div class="dx-field-label"><a>Дата начала поиска:</a></div>
-        <div class="dx-field-value">
-          <dx-date-box #dateBox1 id="date" width="10px" displayFormat="yyyy-MM-dd" type="date" (onValueChanged)="onValueChanged($event)"></dx-date-box>
+        <div class="dx-field">
+            <div class="dx-field-label"><a>Дата начала поиска:</a></div>
+            <div class="dx-field-value">
+                <dx-date-box #dateBox1 id="date" width="10px" displayFormat="yyyy-MM-dd" type="date"
+                    (onValueChanged)="onValueChanged($event)"></dx-date-box>
+            </div>
         </div>
-      </div>
-      <div class="dx-field">
-        <a>Дата конца поиска:</a>
-        <div class="dx-field-value">
-          <dx-date-box #dateBox2 id="date1" width="10px" displayFormat="yyyy-MM-dd" type="date" (onValueChanged)="onValueChanged1($event)"></dx-date-box>
+        <div class="dx-field">
+            <a>Дата конца поиска:</a>
+            <div class="dx-field-value">
+                <dx-date-box #dateBox2 id="date1" width="10px" displayFormat="yyyy-MM-dd" type="date"
+                    (onValueChanged)="onValueChanged1($event)"></dx-date-box>
+            </div>
         </div>
-      </div>
     </div>
-    <button (click)="searchByTittleOrDescription(findSearch(), findSearchWord(), date, date1)" class="new-btn btn btn-success ml-auto">Искать</button>
-  </form>
+    <div class="search-actions d-flex flex-column">
+        <button (click)="searchByTittleOrDescription(findSearch(), findSearchWord(), date, date1)"
+            class="new-btn btn btn-success mb-2">Искать</button>
+    
+        <button (click)="reload()" class="new-btn-update btn btn-success">Очистить фильтры</button>
+    </div>
+       
+</form>
 <div class="container">
     <div class="row">
         <div class="col-12 mt-2 mb-1">
