@@ -75,11 +75,11 @@ export class ViewElasticComponent implements OnInit {
 
   onValueChanged(e: { previousValue: any; value: any; }) {
     this.date = this.formatDate(e.value)
+    console.log(this.date)
   }
 
   onValueChanged1(e: { previousValue: any; value: any; }) {
     this.date1 = this.formatDate(e.value)
-    this.searchByDate(this.date, this.date1)
   }
 
   searchByDate(date: string, date1: string) {
@@ -97,8 +97,8 @@ export class ViewElasticComponent implements OnInit {
     else this.reloadData();
   }
 
-  searchByTittleOrDescription(tittle: string, description: string) {
-    this.elasticService.searchByTittleOrDescription(tittle, description).subscribe(
+  searchByTittleOrDescription(tittle: string, description: string, date: string, date1: string) {
+    this.elasticService.searchByTittleOrDescription(tittle, description, date, date1).subscribe(
       (response) => {
         this.news = response;
       },
