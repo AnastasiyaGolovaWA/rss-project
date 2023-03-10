@@ -15,12 +15,8 @@ export class ElasticSearchService {
         return this.http.get(`${this.newsUrl + '/getAll'}`);
     }
 
-    public searchByTittle(tittle: string): Observable<any> {
-        return this.http.get(`${this.newsUrl + '/news/' + tittle}`);
-    }
-
-    public searchByTittleOrDescription(word: string): Observable<any> {
-        return this.http.get(`${this.newsUrl + '/news?q=' + word}`);
+    public searchByTittleOrDescription(tittle: string, description: string): Observable<any> {
+        return this.http.get(`${this.newsUrl + '/news/searchByTittleOrDescription?tittle=' + tittle + '&description=' + description}`);
     }
 
     public searchByDate(date: string, date1: string): Observable<any> {

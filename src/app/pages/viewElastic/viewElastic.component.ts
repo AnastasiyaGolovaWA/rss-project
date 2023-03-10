@@ -64,20 +64,6 @@ export class ViewElasticComponent implements OnInit {
     }
   }
 
-  searchByTittleOrDescription(word: string) {
-    if (word) {
-      this.elasticService.searchByTittleOrDescription(word).subscribe(
-        (response) => {
-          this.news = response;
-          console.log(response)
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-    }
-    else this.reloadData();
-  }
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -111,18 +97,15 @@ export class ViewElasticComponent implements OnInit {
     else this.reloadData();
   }
 
-  searchByTittle(word: string) {
-    if (word) {
-      this.elasticService.searchByTittle(word).subscribe(
-        (response) => {
-          this.news = response;
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-    }
-    else this.reloadData();
+  searchByTittleOrDescription(tittle: string, description: string) {
+    this.elasticService.searchByTittleOrDescription(tittle, description).subscribe(
+      (response) => {
+        this.news = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   reloadDateBox() {
